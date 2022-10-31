@@ -13,4 +13,56 @@ body{
 	overflow: hidden;
 	height: 100vh;
 	margin: 0;
+	background-color: black;
 }
+
+.phone-container{
+	background-color: white;
+	min-width: 320px;
+	min-height: calc(320px*1.6);
+	border: 1px solid black;
+	border-radius: 8px;
+	display:flex;
+	flex-direction: column;
+	padding: 5px;
+}
+.screen-container{
+	height: 60%;
+	width: 100%;
+	border:1px dotted black;
+}
+
+.keyboard-container{
+	height: 40%;
+	width: 100%;
+	border:1px dotted black;
+	display: flex;
+	flex-direction: column;
+}
+
+.key-line{
+	height: calc(100%/4);
+	margin-block: 2px;
+	border: 1px solid black;
+	display:flex;
+	justify-content: center;
+	padding-block: 2px;
+}
+.key{
+	cursor: pointer;
+}
+
+.key{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	width: 25px;
+	height: 90%;
+	margin: 3px;
+	border-radius: 6px;
+	box-shadow: 0 0 1px 1px rgb(58, 54, 54);
+}
+
+
+
