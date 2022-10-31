@@ -84,7 +84,7 @@ function type(letter){
 async function typeSentence(sentence){
     for (i in sentence){
         type(sentence[i])
-        await wait(250)
+        await wait(200)
     }
 }
 function wait(ms) {
@@ -99,4 +99,4 @@ async function sendMessage(message){
     send.click()
 }
 
-sendMessage('Happy Birthday')
+sendMessage("Happy Birthday I hope you live well")
