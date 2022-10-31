@@ -40,13 +40,14 @@ cross.addEventListener("click", () => {
 
 let send = document.getElementById("send");
 let phoneContainer = document.querySelector(".phone-container");
+let screenContainer = document.querySelector('.screen-container')
 
 send.addEventListener("click", () => {
-  if (phoneContainer.classList.contains("active")) {
     phoneContainer.classList.remove("active");
-  } else {
-    phoneContainer.classList.add("active");
-  }
+    if (typeBar.value!==''){
+            screenContainer.appendChild(createMessage(typeBar.value))
+            typeBar.value = ''
+    }
 });
 
 typeBar.addEventListener("focus", () => {
@@ -54,3 +55,48 @@ typeBar.addEventListener("focus", () => {
     phoneContainer.classList.add("active");
   }
 });
+
+function createMessage(content){
+    let html = `
+				<div class="message right">${content}</div>
+    `
+    let res = document.createElement('div')
+    res.classList.add('message-wrapper')
+    res.innerHTML = html
+    return res;
+}
+
+function type(letter){
+    if (letter === ' '){
+        letter = 'space'
+    }
+    let key = keys.find((item) => {
+        return item.innerText === `${letter}`.toLowerCase();
+    })
+    if (letter==letter.toUpperCase()){
+        capslockKey.click()
+    }
+    key.click()
+    if (letter==letter.toUpperCase())
+    capslockKey.click()
+}
+
+async function typeSentence(sentence){
+    for (i in sentence){
+        type(sentence[i])
+        await wait(250)
+    }
+}
+function wait(ms) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(ms)
+      }, ms )
+    })
+}  
+async function sendMessage(message){
+    await typeSentence(message)
+    send.click()
+}
+
+sendMessage('Happy Birthday')
