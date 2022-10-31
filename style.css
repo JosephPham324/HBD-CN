@@ -31,7 +31,6 @@ body{
 .screen-container{
 	height: 95%;
 	width: 100%;
-	border:1px dotted black;
 }
 
 .keyboard-container{
