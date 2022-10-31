@@ -20,6 +20,8 @@ body{
 	background-color: white;
 	min-width: 320px;
 	min-height: calc(320px*1.6);
+	height: 90vh;
+	max-height: calc(320px*2);
 	border: 1px solid black;
 	border-radius: 8px;
 	display:flex;
@@ -27,7 +29,7 @@ body{
 	padding: 5px;
 }
 .screen-container{
-	height: 60%;
+	height: 95%;
 	width: 100%;
 	border:1px dotted black;
 }
@@ -35,18 +37,41 @@ body{
 .keyboard-container{
 	background-image: url('images/birthday-boy.jpg') ;
 	background-size: cover;
-	
-	height: 40%;
+	background-position: center;
+	min-height: 5%;
+	max-height: 35%;
+	max-width: 100%;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
+.phone-container.active .keyboard-container{
+	height: 35%;
+}
+.phone-container.active .screen-container{
+	height: 65%;
+}
+.keyboard-container{
+	transition: height 0.5s;
+}
+.screen-container{
+	transition: height 0.5s;
+}
 
+.phone-container.active .keys{
+	display:block;
+}
+.keys{
+	height: 100%;
+	width: 100%;
+	display: none;
+}
 .key-line{
-	height: calc(100%/4);
+	height: calc(100%/5);
 	margin-block: 2px;
 	display:flex;
 	justify-content: center;
+	align-items: center;
 	padding-block: 2px;
 }
 .key{
@@ -62,9 +87,11 @@ body{
 	align-items: center;
 	justify-content: center;
 	text-align: center;
+	min-width: 25px;
 	width: auto;
 	padding-inline: 10px;
 	height: 90%;
+	max-height: 40px;
 	margin: 3px;
 	border-radius: 6px;
 	text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
@@ -74,9 +101,45 @@ body{
 	background-color: rgba(148, 19, 247, 0.4);
 	box-shadow: 0 0 1px 1px rgb(221, 99, 239);
 }
+.key.active{
+	transform: scale(0.98);
+}
 
 #space{
 	width: 40%;
+}
+
+.type-bar{
+	height: calc(100%/4);
+	min-height: 35px;
+	width: 100%;
+	border: 1px solid black;
+	border-radius: 20px;
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 0;
+	padding-right: 40px;
+	background-color: rgba(white, white, white, 0.8);
+}
+.type-bar i{
+	color: blue;
+	font-size: 24px;
+	position: absolute;
+	right: 10px;
+	cursor: pointer;
+}
+.type-bar input[type='search']{
+	background-color: rgba(255, 255, 255, 0.8);
+	padding: 10px;
+	border: 0;
+	margin: 0;
+	border-radius: 20px 10px 10px 20px;
+	width: 100%;
+	height: 100%;
+}
+#cross{
+	color: black;
 }
 
 
