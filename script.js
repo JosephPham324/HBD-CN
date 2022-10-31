@@ -99,4 +99,7 @@ async function sendMessage(message){
     send.click()
 }
 
+screenContainer.addEventListener('click',()=>{
+    phoneContainer.classList.remove("active");
+})
 sendMessage("Happy Birthday I hope you live well")
